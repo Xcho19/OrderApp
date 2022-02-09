@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE952CAC27B1495F00CBFD32 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE952CAB27B1495F00CBFD32 /* MenuController.swift */; };
 		EEA846EF27A66E9A00F63B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */; };
 		EEA846F127A66E9A00F63B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */; };
 		EEA846F627A66E9A00F63B3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA846F427A66E9A00F63B3A /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE952CAB27B1495F00CBFD32 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		EEA846EB27A66E9A00F63B3A /* OrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		EEA846ED27A66E9A00F63B3A /* OrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				EE952CAB27B1495F00CBFD32 /* MenuController.swift */,
 				EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */,
 				EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */,
 				EEA846F427A66E9A00F63B3A /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEBD95AA27AB2BFE009607A6 /* MenuItem.swift in Sources */,
+				EE952CAC27B1495F00CBFD32 /* MenuController.swift in Sources */,
 				EEBD95A427AB28C7009607A6 /* MenuTableViewController.swift in Sources */,
 				EEBD95AC27AB2D8E009607A6 /* ResponseModels.swift in Sources */,
 				EEBD95A827AB2B11009607A6 /* MenuItemDetailViewController.swift in Sources */,
