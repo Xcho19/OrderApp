@@ -8,8 +8,15 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
+    
+    let category: String
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init?(coder: NSCoder, category: String) {
+        self.category = category
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

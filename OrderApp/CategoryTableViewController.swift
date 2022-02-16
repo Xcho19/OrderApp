@@ -7,9 +7,67 @@
 
 import UIKit
 
+@MainActor
 class CategoryTableViewController: UITableViewController {
-
+    let menuController = MenuController()
+    var categories = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Task.init {
+            do {
+                let categories = try await menuController.fetchCategories()
+                updateUI(with: categories)
+            } catch {
+                displayError(error, title: "Failed to Fetch Categories")
+            }
+        }
+    }
+    
+    func updateUI(with categories: [String]) {
+        self.categories = categories
+        self.tableView.reloadData()
+    }
+    
+    func displayError(_ error: Error, title: String) {
+        guard let _ = viewIfLoaded?.window else { return }
+        
+        let alert = UIAlertController(
+            title: title,
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Dissmiss", style: .default))
+        self.present(alert, animated: true)
+    }
+
+    @IBSegueAction func showMenu(_ coder: NSCoder, sender: Any?) -> MenuTableViewController? {
+        guard let cell = sender as? UITableViewCell,
+              let indexPath = tableView.indexPath(for: cell)
+        else { return nil }
+
+        let category = categories[indexPath.row]
+
+        return MenuTableViewController(coder: coder, category: category)
+    }
+
+    // MARK: - TableView DataSource
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+    -> Int { categories.count }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
+        configureCell(cell, forCategoryAt: indexPath)
+
+        return cell
+    }
+
+    func configureCell(_ cell: UITableViewCell, forCategoryAt indexpath: IndexPath) {
+        let category = categories[indexpath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = category.capitalized
+        cell.contentConfiguration = content
     }
 }
