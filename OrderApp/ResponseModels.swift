@@ -18,7 +18,7 @@ struct CategoriesResponse: Codable {
 struct OrderResponse: Codable {
     let prepTime: Int
     
-    enum CodingKeys: String, CodingKeys {
+    enum CodingKeys: String, CodingKey {
         case prepTime = "preperation_time"
     }
 }
