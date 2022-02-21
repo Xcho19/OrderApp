@@ -8,6 +8,9 @@
 import Foundation
 
 class MenuController {
+
+    static let shared = MenuController()
+
     let baseURL = URL(string: "http://localhost:8080/")!
     
     typealias MinutesToPrepare = Int
@@ -33,8 +36,8 @@ class MenuController {
     }
     
     func fetchMenuItems(forCategory categoryName: String) async throws -> [MenuItem] {
-        let baseMenuURL = baseURL.appendingPathComponent("menu")
-        var components = URLComponents(url: baseMenuURL, resolvingAgainstBaseURL: true)!
+        let initialMenuURL = baseURL.appendingPathComponent("menu")
+        var components = URLComponents(url: initialMenuURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [URLQueryItem(name: "category", value: categoryName)]
         guard let menuURL = components.url else { fatalError() }
         let (data, response) = try await URLSession.shared.data(from: menuURL)

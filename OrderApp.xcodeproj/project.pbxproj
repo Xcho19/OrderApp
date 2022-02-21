@@ -71,7 +71,6 @@
 				EE952CAB27B1495F00CBFD32 /* MenuController.swift */,
 				EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */,
 				EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */,
-				EEA846F427A66E9A00F63B3A /* Main.storyboard */,
 				EEBD95A927AB2BFE009607A6 /* MenuItem.swift */,
 				EEBD95AB27AB2D8E009607A6 /* ResponseModels.swift */,
 				EEBD95A727AB2B11009607A6 /* MenuItemDetailViewController.swift */,
@@ -79,6 +78,7 @@
 				EEBD95A327AB28C7009607A6 /* MenuTableViewController.swift */,
 				EEBD95A527AB28D1009607A6 /* OrderTableViewController.swift */,
 				EEA846F727A66E9C00F63B3A /* Assets.xcassets */,
+				EEA846F427A66E9A00F63B3A /* Main.storyboard */,
 				EEA846F927A66E9C00F63B3A /* LaunchScreen.storyboard */,
 				EEA846FC27A66E9C00F63B3A /* Info.plist */,
 			);
