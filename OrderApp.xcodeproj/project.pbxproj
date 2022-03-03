@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE57C57827CD0F4D0043D9DD /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE57C57727CD0F4D0043D9DD /* MenuItemCell.swift */; };
+		EE757F0C27CC405200326368 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE757F0B27CC405200326368 /* Order.swift */; };
 		EE952CAC27B1495F00CBFD32 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE952CAB27B1495F00CBFD32 /* MenuController.swift */; };
+		EE9B2D6D27C8390C008E521D /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B2D6C27C8390C008E521D /* OrderConfirmationViewController.swift */; };
 		EEA846EF27A66E9A00F63B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */; };
 		EEA846F127A66E9A00F63B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */; };
 		EEA846F627A66E9A00F63B3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA846F427A66E9A00F63B3A /* Main.storyboard */; };
@@ -22,7 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE57C57727CD0F4D0043D9DD /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		EE757F0B27CC405200326368 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		EE952CAB27B1495F00CBFD32 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		EE9B2D6C27C8390C008E521D /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		EEA846EB27A66E9A00F63B3A /* OrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,21 +74,48 @@
 		EEA846ED27A66E9A00F63B3A /* OrderApp */ = {
 			isa = PBXGroup;
 			children = (
-				EE952CAB27B1495F00CBFD32 /* MenuController.swift */,
+				EEEA6F2727CEAF8800568ECC /* Models */,
+				EEEA6F2827CEB0A000568ECC /* Views */,
+				EEEA6F2627CEAF5F00568ECC /* Controllers */,
 				EEA846EE27A66E9A00F63B3A /* AppDelegate.swift */,
 				EEA846F027A66E9A00F63B3A /* SceneDelegate.swift */,
-				EEBD95A927AB2BFE009607A6 /* MenuItem.swift */,
-				EEBD95AB27AB2D8E009607A6 /* ResponseModels.swift */,
+				EEA846F727A66E9C00F63B3A /* Assets.xcassets */,
+				EEA846FC27A66E9C00F63B3A /* Info.plist */,
+			);
+			path = OrderApp;
+			sourceTree = "<group>";
+		};
+		EEEA6F2627CEAF5F00568ECC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE952CAB27B1495F00CBFD32 /* MenuController.swift */,
 				EEBD95A727AB2B11009607A6 /* MenuItemDetailViewController.swift */,
 				EEBD95A127AB28B7009607A6 /* CategoryTableViewController.swift */,
 				EEBD95A327AB28C7009607A6 /* MenuTableViewController.swift */,
 				EEBD95A527AB28D1009607A6 /* OrderTableViewController.swift */,
-				EEA846F727A66E9C00F63B3A /* Assets.xcassets */,
+				EE9B2D6C27C8390C008E521D /* OrderConfirmationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EEEA6F2727CEAF8800568ECC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE57C57727CD0F4D0043D9DD /* MenuItemCell.swift */,
+				EEBD95A927AB2BFE009607A6 /* MenuItem.swift */,
+				EE757F0B27CC405200326368 /* Order.swift */,
+				EEBD95AB27AB2D8E009607A6 /* ResponseModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EEEA6F2827CEB0A000568ECC /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				EEA846F427A66E9A00F63B3A /* Main.storyboard */,
 				EEA846F927A66E9C00F63B3A /* LaunchScreen.storyboard */,
-				EEA846FC27A66E9C00F63B3A /* Info.plist */,
 			);
-			path = OrderApp;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,6 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEA846FF27A66E9C00F63B3A /* Build configuration list for PBXNativeTarget "OrderApp" */;
 			buildPhases = (
+				EEE903BE27C50FE300195026 /* Run Swiftlint */,
 				EEA846E727A66E9A00F63B3A /* Sources */,
 				EEA846E827A66E9A00F63B3A /* Frameworks */,
 				EEA846E927A66E9A00F63B3A /* Resources */,
@@ -151,18 +185,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EEE903BE27C50FE300195026 /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EEA846E727A66E9A00F63B3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9B2D6D27C8390C008E521D /* OrderConfirmationViewController.swift in Sources */,
 				EEBD95AA27AB2BFE009607A6 /* MenuItem.swift in Sources */,
 				EE952CAC27B1495F00CBFD32 /* MenuController.swift in Sources */,
 				EEBD95A427AB28C7009607A6 /* MenuTableViewController.swift in Sources */,
+				EE757F0C27CC405200326368 /* Order.swift in Sources */,
 				EEBD95AC27AB2D8E009607A6 /* ResponseModels.swift in Sources */,
 				EEBD95A827AB2B11009607A6 /* MenuItemDetailViewController.swift in Sources */,
 				EEBD95A627AB28D1009607A6 /* OrderTableViewController.swift in Sources */,
 				EEA846EF27A66E9A00F63B3A /* AppDelegate.swift in Sources */,
+				EE57C57827CD0F4D0043D9DD /* MenuItemCell.swift in Sources */,
 				EEA846F127A66E9A00F63B3A /* SceneDelegate.swift in Sources */,
 				EEBD95A227AB28B7009607A6 /* CategoryTableViewController.swift in Sources */,
 			);

@@ -17,16 +17,8 @@ struct CategoriesResponse: Codable {
 
 struct OrderResponse: Codable {
     let prepTime: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case prepTime = "preperation_time"
-    }
-}
 
-struct Order: Codable {
-    var menuItems: [MenuItem]
-    
-    init(menuItems: [MenuItem] = []) {
-        self.menuItems = menuItems
+    enum CodingKeys: String, CodingKey {
+        case prepTime = "preparation_time"
     }
 }
