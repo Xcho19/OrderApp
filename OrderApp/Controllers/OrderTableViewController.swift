@@ -29,7 +29,7 @@ class OrderTableViewController: UITableViewController {
     func uploadOrder() {
         let menuIds = MenuController.shared.order.menuItems.map { $0.id }
 
-        Task.init {
+        Task {
             do {
                 let minutesToPrepare = try await MenuController.shared.submitOrder(forMenuIDs: menuIds)
                 minutesToPrepareOrder = minutesToPrepare
@@ -49,7 +49,7 @@ class OrderTableViewController: UITableViewController {
         cell.price = menuItem.price
         cell.image = nil
 
-        imageLoadTasks[indexPath] = Task.init {
+        imageLoadTasks[indexPath] = Task {
             if let image = try? await
                 MenuController.shared.fetchImage(from: menuItem.imageURL) {
                 if let currentIndexPath = self.tableView.indexPath(for: cell),
@@ -74,7 +74,8 @@ class OrderTableViewController: UITableViewController {
     }
 
     @IBSegueAction func confirmOrder(_ coder: NSCoder) -> OrderConfirmationViewController? {
-        OrderConfirmationViewController.init(coder: coder, minutesToPrepare: minutesToPrepareOrder)
+        OrderConfirmationViewController(coder: coder, minutesToPrepare: minutesToPrepareOrder)
+
     }
 
     @IBAction func unwindToOrderList(segue: UIStoryboardSegue) {
@@ -96,11 +97,11 @@ class OrderTableViewController: UITableViewController {
             preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(
             title: "Submit",
-            style: .default,
-            handler: { _ in
-                self.uploadOrder()
-            }
-        ))
+            style: .default
+        ) { _ in
+            self.uploadOrder()
+        }
+        )
 
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
@@ -120,14 +121,14 @@ class OrderTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath)
-    -> Bool { true }
+        -> Bool { true }
 
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
         forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            MenuController.shared.order.menuItems.remove(at: indexPath.row)
+            if editingStyle == .delete {
+                MenuController.shared.order.menuItems.remove(at: indexPath.row)
+            }
         }
-    }
 }

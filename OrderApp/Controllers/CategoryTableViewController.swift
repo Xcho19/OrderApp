@@ -15,7 +15,7 @@ class CategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Task.init {
+        Task {
             do {
                 let categories = try await MenuController.shared.fetchCategories()
                 updateUI(with: categories)
