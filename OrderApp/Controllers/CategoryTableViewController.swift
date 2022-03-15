@@ -11,11 +11,11 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
 
     var categories = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Task.init {
+
+        Task {
             do {
                 let categories = try await MenuController.shared.fetchCategories()
                 updateUI(with: categories)
@@ -24,22 +24,30 @@ class CategoryTableViewController: UITableViewController {
             }
         }
     }
-    
+
+    func configureCell(_ cell: UITableViewCell, forCategoryAt indexpath: IndexPath) {
+        let category = categories[indexpath.row]
+
+        var content = cell.defaultContentConfiguration()
+        content.text = category.capitalized
+        cell.contentConfiguration = content
+    }
+
     func updateUI(with categories: [String]) {
         self.categories = categories
         self.tableView.reloadData()
     }
-    
+
     func displayError(_ error: Error, title: String) {
-        guard let _ = viewIfLoaded?.window else { return }
-        
-        let alert = UIAlertController(
-            title: title,
-            message: error.localizedDescription,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Dissmiss", style: .default))
-        self.present(alert, animated: true)
+        if viewIfLoaded?.window != nil {
+            let alert = UIAlertController(
+                title: title,
+                message: error.localizedDescription,
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "Dissmiss", style: .default))
+            self.present(alert, animated: true)
+        }
     }
 
     @IBSegueAction func showMenu(_ coder: NSCoder, sender: Any?) -> MenuTableViewController? {
@@ -51,22 +59,15 @@ class CategoryTableViewController: UITableViewController {
         return MenuTableViewController(coder: coder, category: category)
     }
 
-    // MARK: - TableView DataSource
+    // MARK: - Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-    -> Int { categories.count }
+        -> Int { categories.count }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
         configureCell(cell, forCategoryAt: indexPath)
 
         return cell
-    }
-
-    func configureCell(_ cell: UITableViewCell, forCategoryAt indexpath: IndexPath) {
-        let category = categories[indexpath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = category.capitalized
-        cell.contentConfiguration = content
     }
 }
